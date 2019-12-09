@@ -7,13 +7,12 @@
     <title>首页</title>
   </head>
 
-  <body style="background-image:url(http://img02.tooopen.com/images/20131212/sy_51552288528.jpg);background-size:100%">
+  <body style="background-image:url(https://raw.githubusercontent.com/Tanyiqu/FWGLXT/master/web/imgs/bg.png);background-size:100%">
 
     <h1 style="text-align: center">房屋中介管理</h1>
+    <a href="https://github.com/Tanyiqu/FWGLXT">项目地址</a><br>
 
-    <img width="500" height="500" src="imgs/bg.png">
-
-    <div><a href="registered.jsp">注册</a></div>
+    <a href="registered.jsp">注册</a><br>
 
     <%--测试连接数据库的语句--%>
     <%
