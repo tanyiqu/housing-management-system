@@ -1,13 +1,18 @@
+//连接数据库的工具类
+//使用JDBC连接
+//依赖“mssql-jdbc-6.4.0.jre8.jar”
+//081417137吴硕
+
 package util;
 
 import java.sql.*;
 
 public class DBUtil {
 
-	public static final String DB = "ZYGL";
-	public static final String USER="fw";
-	public static final String PASSWORD="108412696";
-	public static final String URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=" + DB + ";user=" + USER + ";password=" + PASSWORD;
+	private static final String DB = "ZYGL";
+	private static final String USER="fw";
+	private static final String PASSWORD="108412696";
+	private static final String URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=" + DB + ";user=" + USER + ";password=" + PASSWORD;
 	protected static Statement s=null;
 	protected static ResultSet rs=null;
 	protected static Connection conn=null;
@@ -29,7 +34,7 @@ public class DBUtil {
 
 	/**
 	 **执行insert update delete语句
-	 * @param sql
+	 * @param sql sql
 	 * @return 执行结果 int
 	 */
 	public static int executeUpdate(String sql){
@@ -46,7 +51,7 @@ public class DBUtil {
 
 	/**
 	 **执行select语句
-	 * @param sql
+	 * @param sql sql
 	 * @return result结果集
 	 */
 	public static ResultSet executeQuery(String sql){
@@ -63,7 +68,7 @@ public class DBUtil {
 
 	/**
 	 **执行动态sql语句
-	 * @param sql
+	 * @param sql sql
 	 * @return PreparedStatement
 	 */
 	public static PreparedStatement executePreparedStatment(String sql){
