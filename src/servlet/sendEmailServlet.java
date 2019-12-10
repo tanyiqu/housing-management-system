@@ -32,7 +32,5 @@ public class sendEmailServlet extends HttpServlet {
 
         session.setAttribute("vc",vc);
 
-        System.out.println("发送验证码");
-
     }
 }

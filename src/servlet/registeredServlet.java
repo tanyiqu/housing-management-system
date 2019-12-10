@@ -1,0 +1,57 @@
+package servlet;
+
+import service.UserService;
+import service.impl.UserServiceImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class registeredServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        resp.setContentType("text/html;charset=utf-8");
+        req.setCharacterEncoding("utf-8");
+        HttpSession session = req.getSession();
+        PrintWriter out = resp.getWriter();
+
+        //接收所有参数
+        String type = req.getParameter("type");
+        String userName = req.getParameter("userName");
+        String passwd = req.getParameter("passwd");
+        String repasswd = req.getParameter("repasswd");
+        String name = req.getParameter("name");
+        String tel = req.getParameter("tel");
+        String email = req.getParameter("email");
+        String vc = req.getParameter("vc");
+        //获取服务器发送的验证码
+        String VC = (String) session.getAttribute("vc");
+
+        //调用service判断用户
+        UserService user = new UserServiceImpl();
+        int code = user.checkParam(userName,passwd,repasswd,email,vc,VC);
+        switch (code){
+            case UserService.OK:
+                break;
+            case UserService.USER_ALREADY_EXISTS:
+
+                return;
+            case UserService.VC_ERROR:
+                String script = "<script>alert('验证码输入错误！');location.href='registered.jsp'</script>";
+                out.println(script);
+                return;
+        }
+        out.println("<h1>注册成功</h1>");
+    }
+}

@@ -10,9 +10,9 @@
   <body style="background-image:url(imgs/bg.png);background-size:100%">
 
     <h1 style="text-align: center">房屋中介管理</h1>
-    <a href="https://github.com/Tanyiqu/FWGLXT">项目地址</a><br>
+    <a href="https://github.com/Tanyiqu/FWGLXT">项目地址</a> &nbsp; <a href="https://baidu.com">百度</a><br>
 
-    <a href="registered.jsp">注册</a><br>
+    <a href="login.jsp">登录</a> &nbsp; <a href="registered.jsp">注册</a><br><br>
 
     <%--测试连接数据库的语句--%>
     <%
@@ -22,13 +22,17 @@
       while (true) {
         try {
           if (!rs.next()) break;
-          sb.append(rs.getString("sno"));
+          sb.append(rs.getString(1));
           sb.append("   ");
-          sb.append(rs.getString("sn"));
+          sb.append(rs.getString(2));
           sb.append("   ");
-          sb.append(rs.getString("sex"));
+          sb.append(rs.getString(3));
           sb.append("   ");
-          sb.append(rs.getString("class"));
+          sb.append(rs.getString(4));
+          sb.append("   ");
+          sb.append(rs.getString(5));
+          sb.append("   ");
+          sb.append(rs.getString(6));
           sb.append("   ");
           sb.append("<br>");
         } catch (SQLException e) {

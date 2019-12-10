@@ -5,12 +5,23 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>sendEmailServlet</servlet-name>
+        <servlet-name>sendEmail</servlet-name>
         <servlet-class>servlet.sendEmailServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>sendEmailServlet</servlet-name>
-        <url-pattern>/sendEmailServlet</url-pattern>
+        <servlet-name>sendEmail</servlet-name>
+        <url-pattern>/sendEmail</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registered</servlet-name>
+        <servlet-class>servlet.registeredServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registered</servlet-name>
+        <url-pattern>/registered</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
