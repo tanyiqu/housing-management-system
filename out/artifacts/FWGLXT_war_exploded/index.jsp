@@ -7,7 +7,7 @@
     <title>首页</title>
   </head>
 
-  <body style="background-image:url(https://raw.githubusercontent.com/Tanyiqu/FWGLXT/master/web/imgs/bg.png);background-size:100%">
+  <body style="background-image:url(imgs/bg.png);background-size:100%">
 
     <h1 style="text-align: center">房屋中介管理</h1>
     <a href="https://github.com/Tanyiqu/FWGLXT">项目地址</a><br>
