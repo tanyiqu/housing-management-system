@@ -18,6 +18,16 @@ public interface UserService {
      */
     public int checkParam(String userName,String passwd,String repasswd,String email,String vc_input,String vc_send);
 
-
+    /**
+     * 添加用户
+     * @param type 类型
+     * @param userName 用户名/账号
+     * @param passwd 密码
+     * @param trueName 真实姓名
+     * @param tel 手机号
+     * @param email 邮箱
+     * @return 是否成功
+     */
+    public boolean addUser(String type,String userName,String passwd,String trueName,String tel,String email);
 
 }

@@ -13,11 +13,13 @@ public class UserServiceImpl implements UserService {
         }
         //判断用户名是否已存在（数据库）
 
-
-
         return UserService.OK;
     }
 
+    @Override
+    public boolean addUser(String type, String userName, String passwd, String trueName, String tel, String email) {
+        return false;
+    }
 
 
 }

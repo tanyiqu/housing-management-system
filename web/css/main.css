@@ -9,9 +9,11 @@ body{
 }
 .main {
 	background:#eeeeee;
-	width: 26%;
-	margin:9% auto 4% auto;
+	width: 20%;
+	margin-left: 70%;
+	margin-top: 7%;
 	position: relative;
+	border-radius: 7px;
 }
 .main h1{
 	font-size:25px;

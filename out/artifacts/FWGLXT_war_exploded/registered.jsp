@@ -3,7 +3,7 @@
 <head>
     <title>用户注册</title>
     <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
-    <script src="js/check_user.js" type="text/javascript"></script>
+    <script src="js/registered.js" type="text/javascript"></script>
     <script>
 
         /**
@@ -51,7 +51,7 @@
     </script>
 
 </head>
-<body style="background-image:url(imgs/bg.png);background-size:100%">
+<body>
     <h1 style="text-align: center">用户注册</h1><br>
 
     <div>

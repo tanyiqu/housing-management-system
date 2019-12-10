@@ -4,14 +4,15 @@
     <meta charset="gb2312">
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script src="js/login.js" type="text/javascript"></script>
 </head>
-<body style="background-image:url(imgs/bg.png);background-size:100%">
+<body style="background-image:url(imgs/bg_login.png);background-size:100%">
 
 <h1 style="text-align: center">房屋中介管理</h1>
 
     <div class="main">
         <h1>账号登录</h1>
-        <form action="#" method="post">
+        <form name="form_login" action="login" method="post" onsubmit="return check()">
             <select name="type">
                 <option value="0">买房</option>
                 <option value="1">卖房</option>
