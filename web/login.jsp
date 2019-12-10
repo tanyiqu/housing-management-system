@@ -3,12 +3,12 @@
 <head>
     <meta charset="gb2312">
     <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <script src="js/login.js" type="text/javascript"></script>
 </head>
-<body style="background-image:url(imgs/bg_login.png);background-size:100%">
+<body style="background-image:url(imgs/bg_login.png);background-size: auto">
 
-<h1 style="text-align: center">房屋中介管理</h1>
+    <h1 style="text-align: center">房屋中介管理</h1>
 
     <div class="main">
         <h1>账号登录</h1>
@@ -17,8 +17,8 @@
                 <option value="0">买房</option>
                 <option value="1">卖房</option>
             </select>
-            <input type="text" name="userName" placeholder="请输入账号">
-            <input type="password" name="passwd" placeholder="请输入密码">
+            <input type="text" name="userName" placeholder="请输入账号" value="123">
+            <input type="password" name="passwd" placeholder="请输入密码" value="123">
             <input type="submit" value="登录">
             <p>
                 <a href="#">忘记密码</a>

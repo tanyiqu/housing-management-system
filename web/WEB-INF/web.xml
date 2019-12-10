@@ -31,4 +31,22 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>buyer</servlet-name>
+        <servlet-class>servlet.BuyerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>buyer</servlet-name>
+        <url-pattern>/buyer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>seller</servlet-name>
+        <servlet-class>servlet.SellerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>seller</servlet-name>
+        <url-pattern>/seller</url-pattern>
+    </servlet-mapping>
+
 </web-app>

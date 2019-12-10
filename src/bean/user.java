@@ -5,5 +5,4 @@ package bean;
  * 买家或卖家
  */
 public class user {
-
 }

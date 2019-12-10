@@ -95,9 +95,7 @@ public class RegisteredServlet extends HttpServlet {
         sb.append("</td>");
         sb.append("</tr>");
 
-
         sb.append("</table>");
-
 
         out.println(sb);
 
