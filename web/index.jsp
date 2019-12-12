@@ -1,8 +1,7 @@
 <%@ page import="util.DBUtil" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="u" class="bean.user"/>
+<jsp:useBean id="u" class="bean.User"/>
 
 <html>
   <head>
@@ -18,7 +17,7 @@
 
     <%--测试连接数据库的语句--%>
     <%
-      String sql = "select * from S";
+      String sql = "select * from gmr";
       ResultSet rs = DBUtil.executeQuery(sql);
       StringBuilder sb = new StringBuilder();
       while (true) {
@@ -33,8 +32,6 @@
           sb.append(rs.getString(4));
           sb.append("   ");
           sb.append(rs.getString(5));
-          sb.append("   ");
-          sb.append(rs.getString(6));
           sb.append("   ");
           sb.append("<br>");
         } catch (SQLException e) {

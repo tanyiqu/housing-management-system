@@ -72,7 +72,7 @@
 
             电话：<input type="text" name="tel">*<br>
 
-            邮箱：<input type="text" name="email" id="email">*
+            邮箱：<input type="email" name="email" id="email">*
             <input type="button" id="sendBtn" value="发送验证码" onclick="sendVCEmail(10)"><br>
 
             验证码：<input type="text" name="vc">*<br>

@@ -40,7 +40,8 @@ public class RegisteredServlet extends HttpServlet {
 
         //调用service判断用户
         UserService user = new UserServiceImpl();
-        int code = user.checkParam(userName,passwd,repasswd,email,vc,VC);
+        int code = user.checkParam(type,userName,passwd,repasswd,email,vc,VC);
+
         String script;
         switch (code){
             case UserService.OK:
