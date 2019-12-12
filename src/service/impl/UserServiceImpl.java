@@ -4,9 +4,7 @@ import bean.User;
 import service.UserService;
 import util.DBUtil;
 
-import javax.sound.midi.Soundbank;
 import java.sql.CallableStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
@@ -47,22 +45,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isExist(String userName, boolean isBuyer){
         String sql;
-        if(isBuyer){
-            sql = "select dbo.buyerExist('%s')";
-        }else {
-            sql = "select dbo.sellerExist('%s')";
-        }
-        sql = String.format(sql,userName);
-        ResultSet rs = DBUtil.executeQuery(sql);
         int exist = 0;
+        if(isBuyer){
+            sql = "{? = call fn_buyerExist(?)}";
+        }else {
+            sql = "{? = call fn_sellerExist(?)}";
+        }
+        CallableStatement cs = DBUtil.executeCall(sql);
         try {
-            rs.next();
-            exist = rs.getInt(1);
-            rs.close();
+            cs.registerOutParameter(1,Types.INTEGER);
+            cs.setString(2,userName);
+            cs.execute();
+            exist = cs.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.close();
         }
         return exist==1;
+
     }
 
     /**
@@ -75,21 +76,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isExist(String userName, String passwd, boolean isBuyer) {
         String sql;
-        if(isBuyer){
-            sql = "select dbo.buyerCorrect('%s','%s')";
-        }else {
-            sql = "select dbo.sellerCorrect('%s','%s')";
-        }
-        sql = String.format(sql,userName,passwd);
-
-        ResultSet rs = DBUtil.executeQuery(sql);
         int exist = 0;
+        if(isBuyer){
+            sql = "{? = call fn_buyerCorrect(?,?)}";
+        }else {
+            sql = "{? = call fn_sellerCorrect(?,?)}";
+        }
+        CallableStatement cs = DBUtil.executeCall(sql);
         try {
-            rs.next();
-            exist = rs.getInt(1);
-            rs.close();
+            cs.registerOutParameter(1,Types.INTEGER);
+            cs.setString(2,userName);
+            cs.setString(3,passwd);
+            cs.execute();
+            exist = cs.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.close();
         }
         return exist==1;
     }
@@ -129,7 +132,6 @@ public class UserServiceImpl implements UserService {
         } finally {
             DBUtil.close();
         }
-        System.out.println(user.toString());
         return user;
     }
 
