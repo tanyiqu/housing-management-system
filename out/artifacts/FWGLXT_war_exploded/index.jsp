@@ -46,6 +46,24 @@
       }
       out.println(sb);
 
+      //测试存储过程
+      sql = "{call sp_gmr_find_by_zh(?,?,?,?,?,?)}";
+      CallableStatement callableStatement = DBUtil.executeCall(sql);
+      try {
+        callableStatement.setString(1,"gf10005");
+        callableStatement.registerOutParameter(2,Types.VARCHAR);
+        callableStatement.registerOutParameter(3,Types.VARCHAR);
+        callableStatement.registerOutParameter(4,Types.VARCHAR);
+        callableStatement.registerOutParameter(5,Types.CHAR);
+        callableStatement.registerOutParameter(6,Types.VARCHAR);
+        callableStatement.execute();
+        sql = callableStatement.getString(4);
+      } catch (SQLException e) {
+        e.printStackTrace();
+      } finally {
+        DBUtil.close();
+      }
+      out.println(sql);
     %>
 
   </body>

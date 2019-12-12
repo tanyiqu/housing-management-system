@@ -5,7 +5,7 @@ package bean;
  * 买家或卖家
  */
 public class User {
-    private String userName = "112";
+    private String userName;
     private String passwd;
     private String trueName;
     private String tel;

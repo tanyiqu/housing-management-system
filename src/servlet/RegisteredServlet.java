@@ -20,7 +20,6 @@ public class RegisteredServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         resp.setContentType("text/html;charset=utf-8");
         req.setCharacterEncoding("utf-8");
         HttpSession session = req.getSession();
@@ -36,7 +35,9 @@ public class RegisteredServlet extends HttpServlet {
         String email = req.getParameter("email");
         String vc = req.getParameter("vc");
         //获取服务器发送的验证码
-        String VC = (String) session.getAttribute("vc");
+//        String VC = (String) session.getAttribute("vc");
+        String VC = "1111";
+
         //调用service判断用户
         UserService user = new UserServiceImpl();
         int code = user.checkParam(type,userName,passwd,repasswd,email,vc,VC);

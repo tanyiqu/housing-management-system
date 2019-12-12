@@ -1,20 +1,16 @@
 package service.impl;
 
 import bean.User;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 import service.UserService;
-import util.DBUtil;
-
-import java.sql.CallableStatement;
-import java.sql.SQLException;
-import java.sql.Types;
 
 public class UserServiceImpl implements UserService {
 
     @Override
     public int checkParam(String type,String userName, String passwd, String repasswd, String email, String vc_input, String vc_send) {
-        System.out.println("检测");
-        System.out.println(type + " " + userName + " "+ passwd);
-
+//        System.out.println("检测");
+//        System.out.println(type + " " + userName + " "+ passwd);
         //判断验证码是否一致
         if(!vc_input.equals(vc_send)){
             return UserService.VC_ERROR;
@@ -44,26 +40,13 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean isExist(String userName, boolean isBuyer){
-        String sql;
-        int exist = 0;
+        UserDao userDao = new UserDaoImpl();
+        String type = "1";
         if(isBuyer){
-            sql = "{? = call fn_buyerExist(?)}";
-        }else {
-            sql = "{? = call fn_sellerExist(?)}";
+            type = "0";
         }
-        CallableStatement cs = DBUtil.executeCall(sql);
-        try {
-            cs.registerOutParameter(1,Types.INTEGER);
-            cs.setString(2,userName);
-            cs.execute();
-            exist = cs.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.close();
-        }
-        return exist==1;
-
+        User user = userDao.find(userName,type);
+        return user.getUserName() != null;
     }
 
     /**
@@ -75,26 +58,13 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean isExist(String userName, String passwd, boolean isBuyer) {
-        String sql;
-        int exist = 0;
+        UserDao userDao = new UserDaoImpl();
+        String type = "1";
         if(isBuyer){
-            sql = "{? = call fn_buyerCorrect(?,?)}";
-        }else {
-            sql = "{? = call fn_sellerCorrect(?,?)}";
+            type = "0";
         }
-        CallableStatement cs = DBUtil.executeCall(sql);
-        try {
-            cs.registerOutParameter(1,Types.INTEGER);
-            cs.setString(2,userName);
-            cs.setString(3,passwd);
-            cs.execute();
-            exist = cs.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.close();
-        }
-        return exist==1;
+        User user = userDao.find(userName,passwd,type);
+        return user.getUserName() != null;
     }
 
     /**
@@ -105,34 +75,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User find(String userName,String type) {
-        User user = new User();
-        //调用存储过程
-        String sql = null;
-        if(type.equals("0")){//买
-            sql = "{call sp_gmr_find(?,?,?,?,?,?)}";
-        }else {//卖
-            sql = "{call sp_csr_find(?,?,?,?,?,?)}";
-        }
-        CallableStatement cs = DBUtil.executeCall(sql);
-        try {
-            cs.setString(1,userName);
-            cs.registerOutParameter(2, Types.VARCHAR);
-            cs.registerOutParameter(3, Types.VARCHAR);
-            cs.registerOutParameter(4, Types.VARCHAR);
-            cs.registerOutParameter(5, Types.CHAR);
-            cs.registerOutParameter(6, Types.VARCHAR);
-            cs.execute();
-            user.setUserName(cs.getString(2));
-            user.setPasswd(cs.getString(3));
-            user.setTrueName(cs.getString(4));
-            user.setTel(cs.getString(5));
-            user.setEmail(cs.getString(6));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.close();
-        }
-        return user;
+        UserDao userDao = new UserDaoImpl();
+        return userDao.find(userName,type);
     }
 
 

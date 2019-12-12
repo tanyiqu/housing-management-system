@@ -49,4 +49,13 @@
         <url-pattern>/seller</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>addHouse</servlet-name>
+        <servlet-class>servlet.AddHouseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addHouse</servlet-name>
+        <url-pattern>/addHouse</url-pattern>
+    </servlet-mapping>
+
 </web-app>

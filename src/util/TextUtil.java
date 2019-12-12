@@ -26,5 +26,9 @@ public class TextUtil {
     }
 
 
+    public static String errText(String msg,String location){
+        String script = "<script>alert('%s');location.href='%s'</script>";
+        return String.format(script,msg,location);
+    }
 
 }

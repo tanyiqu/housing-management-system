@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="user" type="bean.User" scope="request"/>
+<jsp:useBean id="buyer" type="bean.User" scope="session"/>
 <html>
 <head>
     <title>首页</title>
@@ -21,7 +21,7 @@
 
     <h1>优质房源</h1>
 
-    <jsp:getProperty name="user" property="userName"/>
+    <jsp:getProperty name="buyer" property="userName"/>
 
     <table>
         <tr>
