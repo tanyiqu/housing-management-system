@@ -58,4 +58,12 @@ public interface UserService {
      */
     public User find(String userName,String type);
 
+    /**
+     * 判断管理员账号和密码是否正确
+     * @param userName 账号
+     * @param passwd 密码
+     * @return 是否正确
+     */
+    public boolean adminCorrect(String userName,String passwd);
+
 }

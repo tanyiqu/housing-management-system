@@ -1,10 +1,12 @@
 package dao.impl;
 
+import bean.Admin;
 import bean.User;
 import dao.UserDao;
 import util.DBUtil;
 
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
@@ -99,4 +101,22 @@ public class UserDaoImpl implements UserDao {
         }
         return success;
     }
+
+    @Override
+    public boolean checkAdmin(String userName, String passwd) {
+        String sql = "{? = call fn_gly_correct(?,?)}";
+        int exist = 0;
+        CallableStatement cs = DBUtil.executeCall(sql);
+        try {
+            cs.registerOutParameter(1,Types.INTEGER);
+            cs.setString(2,userName);
+            cs.setString(3,passwd);
+            cs.execute();
+            exist = cs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exist == 1;
+    }
+
 }

@@ -1,5 +1,6 @@
 package service.impl;
 
+import bean.Admin;
 import bean.User;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
@@ -73,6 +74,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User find(String userName,String type) {
         return userDao.find(userName,type);
+    }
+
+    @Override
+    public boolean adminCorrect(String userName, String passwd) {
+        return userDao.checkAdmin(userName,passwd);
     }
 
 
