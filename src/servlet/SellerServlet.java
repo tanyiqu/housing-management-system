@@ -1,7 +1,10 @@
 package servlet;
 
+import bean.SellerCard;
 import bean.User;
+import service.HouseService;
 import service.UserService;
+import service.impl.HouseServiceImpl;
 import service.impl.UserServiceImpl;
 import util.TextUtil;
 
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class SellerServlet extends HttpServlet {
     @Override
@@ -30,6 +34,9 @@ public class SellerServlet extends HttpServlet {
 
         //获取用户服务实例
         UserService userService = new UserServiceImpl();
+        //获取房源服务实例
+        HouseService houseService = new HouseServiceImpl();
+
         //判断用户名密码是否正确 卖家
         boolean exist = userService.isExist(userName,passwd,false);
         //如果用户不存在，提示并返回
@@ -38,9 +45,13 @@ public class SellerServlet extends HttpServlet {
             out.println(script);
             return;
         }
-        //把user设置为转发接受者的beam
+        //把user存入session域
         User user = userService.find(userName,"1");
         req.getSession().setAttribute("seller",user);
+        //获取卖方登记卡
+        List<SellerCard> sellerCards =  houseService.getSellerCard(userName);
+        //将卖方登记卡存入request域
+        req.setAttribute("sellerCards",sellerCards);
         //转发
         RequestDispatcher dispatcher = req.getRequestDispatcher("seller.jsp");
         dispatcher.forward(req, resp);

@@ -1,0 +1,16 @@
+*{
+    margin:0;
+    padding:0;
+}
+.nav{
+    background-color: rgb(35, 143, 242);
+    height: 70px;
+
+}
+.nav h1{
+    font-size:30px;
+    color: #100a67;
+    font-weight:400;
+    text-align:center;
+    padding-top: 13px;
+}

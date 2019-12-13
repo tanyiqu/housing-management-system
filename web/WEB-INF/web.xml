@@ -58,4 +58,13 @@
         <url-pattern>/addHouse</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>detail</servlet-name>
+        <servlet-class>servlet.HouseDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>detail</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+
 </web-app>

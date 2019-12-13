@@ -9,7 +9,7 @@ public class House {
     private String houseName;
     private String type;
     private int area;
-    private String yser;
+    private String year;
     private String addr;
     private String room;
     private int price;
@@ -56,12 +56,12 @@ public class House {
         this.area = area;
     }
 
-    public String getYser() {
-        return yser;
+    public String getYear() {
+        return year;
     }
 
-    public void setYser(String yser) {
-        this.yser = yser;
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getAddr() {
@@ -94,5 +94,21 @@ public class House {
 
     public void setSoldout(boolean soldout) {
         this.soldout = soldout;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "houseId='" + houseId + '\'' +
+                ", host='" + host + '\'' +
+                ", houseName='" + houseName + '\'' +
+                ", type='" + type + '\'' +
+                ", area=" + area +
+                ", year='" + year + '\'' +
+                ", addr='" + addr + '\'' +
+                ", room='" + room + '\'' +
+                ", price=" + price +
+                ", soldout=" + soldout +
+                '}';
     }
 }

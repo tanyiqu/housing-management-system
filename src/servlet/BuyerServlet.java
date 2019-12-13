@@ -1,7 +1,12 @@
 package servlet;
 
+import bean.BuyerCard;
+import bean.House;
 import bean.User;
+import dao.HouseDao;
+import service.HouseService;
 import service.UserService;
+import service.impl.HouseServiceImpl;
 import service.impl.UserServiceImpl;
 import util.TextUtil;
 
@@ -12,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class BuyerServlet extends HttpServlet {
 
@@ -29,8 +35,10 @@ public class BuyerServlet extends HttpServlet {
         String passwd = req.getParameter("passwd");
         PrintWriter out = resp.getWriter();
 
-        //获取用户服务实例
+        //获取服务实例
         UserService userService = new UserServiceImpl();
+        HouseService houseService = new HouseServiceImpl();
+
         //判断用户名密码是否正确 卖家
         boolean exist = userService.isExist(userName,passwd,true);
         //如果用户不存在，提示并返回
@@ -39,9 +47,16 @@ public class BuyerServlet extends HttpServlet {
             out.println(script);
             return;
         }
-        //把user设置为转发接受者的beam
+        //把user存入session域
         User user = userService.find(userName,"0");
         req.getSession().setAttribute("buyer",user);
+        //获取可买的房源
+        List<House> houses = houseService.getBuyableHouse();
+        req.setAttribute("houses",houses);
+        //获取买方登记卡
+        List<BuyerCard> buyerCards = houseService.getBuyerCard(userName);
+        req.setAttribute("buyerCards",buyerCards);
+
         //转发
         RequestDispatcher dispatcher = req.getRequestDispatcher("buyer.jsp");
         dispatcher.forward(req, resp);
