@@ -100,5 +100,7 @@ public class RegisteredServlet extends HttpServlet {
 
         out.println(sb);
 
+        out.println("<a href='login.jsp'>立即登录</a>");
+
     }
 }

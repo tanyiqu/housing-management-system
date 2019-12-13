@@ -36,4 +36,13 @@ public interface HouseService {
      */
     public House getHouse(String id);
 
+    /**
+     * 获取可用房号
+     * @return 房号
+     */
+    public String getAvailableHouseId();
+
+
+    public boolean addHouse(String host,String houseName, String type, int area, String year, String addr, String room, int price);
+
 }

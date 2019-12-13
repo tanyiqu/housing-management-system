@@ -67,4 +67,23 @@
         <url-pattern>/detail</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>insertHouse</servlet-name>
+        <servlet-class>servlet.InsertHouseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>insertHouse</servlet-name>
+        <url-pattern>/insertHouse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>admin_login</servlet-name>
+        <servlet-class>servlet.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>admin_login</servlet-name>
+        <url-pattern>/admin_login</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

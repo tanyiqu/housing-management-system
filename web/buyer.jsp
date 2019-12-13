@@ -49,7 +49,7 @@
                 <th>类型</th>
                 <th>年份</th>
                 <th>房间</th>
-                <th>面积（平）</th>
+                <th>面积（㎡）</th>
                 <th>售价（万）</th>
                 <th>操作</th>
             </tr>
@@ -80,7 +80,7 @@
                 <th>价格（万）</th>
                 <th>购买时间</th>
                 <th>房主</th>
-                <th>房主手机</th>
+                <th>房主电话</th>
             </tr>
             <c:forEach items="${buyerCards}" var="buyerCard">
                 <tr>

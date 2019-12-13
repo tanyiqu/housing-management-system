@@ -21,7 +21,6 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public List<SellerCard> getSellerCard(String username) {
-
         return houseDao.findSellerCard(username);
     }
 
@@ -33,5 +32,15 @@ public class HouseServiceImpl implements HouseService {
     @Override
     public House getHouse(String id) {
         return houseDao.find(id);
+    }
+
+    @Override
+    public String getAvailableHouseId() {
+        return houseDao.findAvailableHouseId();
+    }
+
+    @Override
+    public boolean addHouse(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
+        return houseDao.insert(host,houseName,type,area,year,addr,room,price);
     }
 }

@@ -74,4 +74,29 @@ public class UserDaoImpl implements UserDao {
         }
         return user;
     }
+
+    @Override
+    public boolean insert(String type, String userName, String passwd, String trueName, String tel, String email) {
+        String sql;
+        boolean success = false;
+        if(type.equals("0")){
+            sql = "{call sp_gmr_add(?,?,?,?,?)}";
+        }else {
+            sql = "{call sp_csr_add(?,?,?,?,?)}";
+        }
+        CallableStatement cs = DBUtil.executeCall(sql);
+        try {
+            cs.setString(1,userName);
+            cs.setString(2,passwd);
+            cs.setString(3,trueName);
+            cs.setString(4,tel);
+            cs.setString(5,email);
+            success = cs.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close();
+        }
+        return success;
+    }
 }

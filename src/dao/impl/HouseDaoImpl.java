@@ -6,8 +6,10 @@ import bean.SellerCard;
 import dao.HouseDao;
 import util.DBUtil;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,7 @@ public class HouseDaoImpl implements HouseDao {
                 e.printStackTrace();
             }
         }
+        DBUtil.close();
         return buyerCards;
     }
 
@@ -67,6 +70,7 @@ public class HouseDaoImpl implements HouseDao {
                 e.printStackTrace();
             }
         }
+        DBUtil.close();
         return sellerCards;
     }
 
@@ -94,6 +98,7 @@ public class HouseDaoImpl implements HouseDao {
                 e.printStackTrace();
             }
         }
+        DBUtil.close();
         return houses;
     }
 
@@ -120,6 +125,49 @@ public class HouseDaoImpl implements HouseDao {
                 e.printStackTrace();
             }
         }
+        DBUtil.close();
         return house;
+    }
+
+    @Override
+    public String findAvailableHouseId() {
+        String sql = "{? = call fn_get_available_fy_fh()}";
+        String id = null;
+        CallableStatement cs = DBUtil.executeCall(sql);
+        try {
+            cs.registerOutParameter(1, Types.CHAR);
+            cs.execute();
+            id = cs.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close();
+        }
+        return id;
+    }
+
+    @Override
+    public boolean insert(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
+        String sql = "{call sp_fy_add(?,?,?,?,?,?,?,?,?,?)}";
+        boolean success = false;
+        CallableStatement cs = DBUtil.executeCall(sql);
+        try {
+            //使用动态生成的房号
+            cs.setString(1,findAvailableHouseId());
+            cs.setString(2,host);
+            cs.setString(3,houseName);
+            cs.setString(4,type);
+            cs.setInt(5,area);
+            cs.setString(6,year);
+            cs.setString(7,addr);
+            cs.setString(8,room);
+            cs.setInt(9,price);
+            cs.setBoolean(10,true);
+            success = cs.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return success;
     }
 }

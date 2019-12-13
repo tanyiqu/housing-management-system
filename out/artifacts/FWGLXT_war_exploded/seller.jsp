@@ -17,7 +17,7 @@
         <h1>房屋中介</h1>
     </div>
 
-    <h1>正在出售</h1>
+    <h1>我的出售</h1>
     <c:if test="${empty sellerCards}">
         <h3>没有出售记录哦！</h3>
     </c:if>
@@ -26,7 +26,7 @@
             <tr>
                 <th>id</th>
                 <th>房间名称</th>
-                <th>售价</th>
+                <th>售价（万）</th>
                 <th>已售</th>
             </tr>
 

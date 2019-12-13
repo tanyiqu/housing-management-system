@@ -6,11 +6,9 @@ import dao.impl.UserDaoImpl;
 import service.UserService;
 
 public class UserServiceImpl implements UserService {
-
+    UserDao userDao = new UserDaoImpl();
     @Override
     public int checkParam(String type,String userName, String passwd, String repasswd, String email, String vc_input, String vc_send) {
-//        System.out.println("检测");
-//        System.out.println(type + " " + userName + " "+ passwd);
         //判断验证码是否一致
         if(!vc_input.equals(vc_send)){
             return UserService.VC_ERROR;
@@ -29,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean addUser(String type, String userName, String passwd, String trueName, String tel, String email) {
-        return false;
+        return userDao.insert(type,userName,passwd,trueName,tel,email);
     }
 
     /**
@@ -40,7 +38,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean isExist(String userName, boolean isBuyer){
-        UserDao userDao = new UserDaoImpl();
+
         String type = "1";
         if(isBuyer){
             type = "0";
@@ -58,7 +56,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean isExist(String userName, String passwd, boolean isBuyer) {
-        UserDao userDao = new UserDaoImpl();
         String type = "1";
         if(isBuyer){
             type = "0";
@@ -75,7 +72,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User find(String userName,String type) {
-        UserDao userDao = new UserDaoImpl();
         return userDao.find(userName,type);
     }
 
