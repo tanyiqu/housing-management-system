@@ -1,7 +1,10 @@
 package servlet;
 
 import bean.Admin;
+import bean.Income;
+import service.AdminService;
 import service.UserService;
+import service.impl.AdminServiceImpl;
 import service.impl.UserServiceImpl;
 import util.TextUtil;
 
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class AdminLoginServlet extends HttpServlet {
     @Override
@@ -28,9 +32,9 @@ public class AdminLoginServlet extends HttpServlet {
         String passwd = req.getParameter("passwd");
         PrintWriter out = resp.getWriter();
 
-        UserService userService = new UserServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         //验证用户名和密码
-        boolean correct = userService.adminCorrect(username,passwd);
+        boolean correct = adminService.adminCorrect(username,passwd);
         if(!correct){
             String script = TextUtil.errText("密码错误！","admin_login.jsp");
             out.println(script);
@@ -43,8 +47,9 @@ public class AdminLoginServlet extends HttpServlet {
         req.setAttribute("admin",admin);
         //出售信息
 
-        //销售统计
-
+        //收入统计
+        Income income = adminService.getIncomeStatistics();
+        req.setAttribute("income",income);
         //报表
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("admin.jsp");

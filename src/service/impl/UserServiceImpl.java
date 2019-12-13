@@ -76,10 +76,6 @@ public class UserServiceImpl implements UserService {
         return userDao.find(userName,type);
     }
 
-    @Override
-    public boolean adminCorrect(String userName, String passwd) {
-        return userDao.checkAdmin(userName,passwd);
-    }
 
 
 }
