@@ -43,4 +43,19 @@ public class HouseServiceImpl implements HouseService {
     public boolean addHouse(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
         return houseDao.insert(host,houseName,type,area,year,addr,room,price);
     }
+
+    @Override
+    public List<House> getHouseByAddr(String addr) {
+        return houseDao.findHouseByAddr(addr);
+    }
+
+    @Override
+    public List<House> getHouseByArea(int lower, int higher) {
+        return houseDao.findHouseByArea(lower,higher);
+    }
+
+    @Override
+    public List<House> getHouseByPrice(int lower, int higher) {
+        return houseDao.findHouseByPrice(lower,higher);
+    }
 }

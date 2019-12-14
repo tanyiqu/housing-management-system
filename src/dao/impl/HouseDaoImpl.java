@@ -167,7 +167,92 @@ public class HouseDaoImpl implements HouseDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return success;
+    }
+
+    @Override
+    public List<House> findHouseByAddr(String addr) {
+        String sql = "select * from vi_kyfy where fy_dz like '%" + addr + "%'";
+        ResultSet rs = DBUtil.executeQuery(sql);
+        List<House> houses = new ArrayList<>();
+        while (true){
+            try {
+                if (!rs.next()) break;
+                House house = new House();
+                house.setHouseId(rs.getString("fy_fh"));
+                house.setHost(rs.getString("csr_zh"));
+                house.setHouseName(rs.getString("fy_fm"));
+                house.setType(rs.getString("fy_lx"));
+                house.setArea(rs.getInt("fy_mj"));
+                house.setYear(rs.getString("fy_nf"));
+                house.setAddr(rs.getString("fy_dz"));
+                house.setRoom(rs.getString("fy_fj"));
+                house.setPrice(rs.getInt("fy_sj"));
+                house.setSoldout(false);
+                houses.add(house);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        DBUtil.close();
+        return houses;
+    }
+
+    @Override
+    public List<House> findHouseByArea(int lower, int higher) {
+        String sql = "select * from vi_kyfy where fy_mj >= %s and fy_mj <= %s";
+        sql = String.format(sql,lower,higher);
+        ResultSet rs = DBUtil.executeQuery(sql);
+        List<House> houses = new ArrayList<>();
+        while (true){
+            try {
+                if (!rs.next()) break;
+                House house = new House();
+                house.setHouseId(rs.getString("fy_fh"));
+                house.setHost(rs.getString("csr_zh"));
+                house.setHouseName(rs.getString("fy_fm"));
+                house.setType(rs.getString("fy_lx"));
+                house.setArea(rs.getInt("fy_mj"));
+                house.setYear(rs.getString("fy_nf"));
+                house.setAddr(rs.getString("fy_dz"));
+                house.setRoom(rs.getString("fy_fj"));
+                house.setPrice(rs.getInt("fy_sj"));
+                house.setSoldout(false);
+                houses.add(house);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        DBUtil.close();
+        return houses;
+    }
+
+    @Override
+    public List<House> findHouseByPrice(int lower, int higher) {
+        String sql = "select * from vi_kyfy where fy_sj >= %s and fy_sj <= %s";
+        sql = String.format(sql,lower,higher);
+        ResultSet rs = DBUtil.executeQuery(sql);
+        List<House> houses = new ArrayList<>();
+        while (true){
+            try {
+                if (!rs.next()) break;
+                House house = new House();
+                house.setHouseId(rs.getString("fy_fh"));
+                house.setHost(rs.getString("csr_zh"));
+                house.setHouseName(rs.getString("fy_fm"));
+                house.setType(rs.getString("fy_lx"));
+                house.setArea(rs.getInt("fy_mj"));
+                house.setYear(rs.getString("fy_nf"));
+                house.setAddr(rs.getString("fy_dz"));
+                house.setRoom(rs.getString("fy_fj"));
+                house.setPrice(rs.getInt("fy_sj"));
+                house.setSoldout(false);
+                houses.add(house);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        DBUtil.close();
+        return houses;
     }
 }

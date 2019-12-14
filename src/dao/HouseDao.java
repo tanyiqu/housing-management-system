@@ -56,4 +56,10 @@ public interface HouseDao {
      */
     public boolean insert(String host,String houseName, String type, int area, String year, String addr, String room, int price);
 
+    public List<House> findHouseByAddr(String addr);
+
+    public List<House> findHouseByArea(int lower,int higher);
+
+    public List<House> findHouseByPrice(int lower,int higher);
+
 }

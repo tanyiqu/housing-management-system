@@ -26,19 +26,9 @@
     <div class="nav">
         <h1>房屋中介</h1>
     </div>
-
-    <div>
-        <form method="post" action="" style="text-align: center">
-            <input type="text" id="keyword">
-            <select>
-                <option id="0">按地区</option>
-                <option id="1">按价格</option>
-                <option id="2">按面积</option>
-            </select>
-            <input type="submit" id="search" value="搜房源">
-        </form>
-    </div>
-
+    <form method="post" action="search.jsp" target="_blank">
+        <input type="submit" value="搜索">
+    </form>
     <h1>优质房源</h1>
     <div>
         <table>

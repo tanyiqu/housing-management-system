@@ -85,5 +85,14 @@
         <url-pattern>/admin_login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>search_result</servlet-name>
+        <servlet-class>servlet.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>search_result</servlet-name>
+        <url-pattern>/search_result</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

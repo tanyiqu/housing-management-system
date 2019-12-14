@@ -42,7 +42,24 @@ public interface HouseService {
      */
     public String getAvailableHouseId();
 
-
+    /**
+     * 添加
+     * @param host
+     * @param houseName
+     * @param type
+     * @param area
+     * @param year
+     * @param addr
+     * @param room
+     * @param price
+     * @return
+     */
     public boolean addHouse(String host,String houseName, String type, int area, String year, String addr, String room, int price);
+
+    public List<House> getHouseByAddr(String addr);
+
+    public List<House> getHouseByArea(int lower,int higher);
+
+    public List<House> getHouseByPrice(int lower,int higher);
 
 }

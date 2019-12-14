@@ -23,6 +23,7 @@
     <h2>面积：${house.area}㎡</h2>
     <h2>价格：${house.price}万</h2>
     <h2>房主：${host.trueName}</h2>
+    <h2>房主id：${host.userName}</h2>
     <h2>联系电话：${host.tel}</h2>
     <a href=""><input type="button" value="想买" style="width: 260px;height: 50px"></a>
 
