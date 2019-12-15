@@ -48,9 +48,6 @@ public class SearchServlet extends HttpServlet {
         //1 面积
         //2 价格
         int type = 0;
-        if(keyword_addr != null){
-            type = 0;
-        }
         if(keyword_area_lower != null){
             type = 1;
         }

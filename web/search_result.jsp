@@ -23,14 +23,14 @@
         </form>
         <form method="post" action="search_result" style="text-align: center">
             按面积（㎡）
-            <input type="text" name="keyword_area_lower">~
-            <input type="text" name="keyword_area_higher">
+            <input type="number" name="keyword_area_lower">~
+            <input type="number" name="keyword_area_higher">
             <input type="submit" value="搜房源">
         </form>
         <form method="post" action="search_result" style="text-align: center">
             按价格（万）
-            <input type="text" name="keyword_price_lower">~
-            <input type="text" name="keyword_price_higher">
+            <input type="number" name="keyword_price_lower">~
+            <input type="number" name="keyword_price_higher">
             <input type="submit" value="搜房源">
         </form>
     </div>

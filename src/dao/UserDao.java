@@ -1,6 +1,5 @@
 package dao;
 
-import bean.Admin;
 import bean.User;
 
 public interface UserDao {
@@ -33,7 +32,5 @@ public interface UserDao {
      * @return 是否成功
      */
     public boolean insert(String type, String userName, String passwd, String trueName, String tel, String email);
-
-
 
 }
