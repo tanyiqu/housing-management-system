@@ -23,7 +23,6 @@
 
   </div>
 
-
   <div style="background-color: white;margin:0 5px 30px 5px;">
     <h2>优质房源</h2>
     <table>

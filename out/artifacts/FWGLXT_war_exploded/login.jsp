@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="gb2312">
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <script src="js/login.js" type="text/javascript"></script>

@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>用户注册</title>
+    <link rel="stylesheet" href="css/registered.css">
     <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
     <script src="js/registered.js" type="text/javascript"></script>
     <script>
@@ -11,7 +12,6 @@
          * @param wait 倒计时时长
          */
         function sendVCEmail(wait){
-            //sendEmailServlet
             //获取邮箱
             var em = document.getElementById("email");
             em = em.value;
@@ -47,40 +47,64 @@
                 setTimeout("count("+i+")",1000)
             }
         }
-
     </script>
 
 </head>
-<body>
-    <h1 style="text-align: center">用户注册</h1><br>
+<body style="background-image: url(imgs/house/01.png);background-repeat: no-repeat;background-size: cover">
 
-    <div>
-        <form name="f1" method="post" action="registered" onsubmit="return check()">
-            类型：
-            <select name="type">
-                <option value="0">买方注册</option>
-                <option value="1">卖方注册</option>
-            </select><br>
+    <div class="div">
+        <form name="f1" action="registered" method="post" class="registered" onsubmit="return check()">
+            <h1 style="text-align: center;">房屋中介-用户注册</h1>
+            <label>
+                <span>类型：</span>
+                <select id="template" name="type">
+                    <option value="0">买房注册</option>
+                    <option value="1">卖房注册</option>
+                </select>
+            </label>
+            <label>
+                <span>用户名：</span>
+                <input type="text" name="userName" placeholder=" 6-16位字母数字组合，以字母头" />
+            </label>
+            <label>
+                <span>密码：</span>
+                <input type="password" name="passwd" placeholder=" 6-16位"/>
+            </label>
 
-            用户名：<input type="text" name="userName">* 6-16位，字母数字组合，以字母开头<br>
+            <label>
+                <span>确认密码：</span>
+                <input type="password" name="repasswd" placeholder=" 6-16位"/>
+            </label>
 
-            密码：<input type="password" name="passwd">* 6-16位，字母数字组合<br>
+            <label>
+                <span>真实姓名：</span>
+                <input type="text" name="trueName" placeholder=" 请输入真实姓名"/>
+            </label>
 
-            确认密码：<input type="password" name="repasswd">*<br>
+            <label>
+                <span>电话：</span>
+                <input type="text" name="tel" placeholder=" 请输入电话"/>
+            </label>
 
-            真实姓名：<input type="text" name="trueName">*<br>
+            <label>
+                <span>邮箱：</span>
+                <input type="email" name="email" id="email" placeholder=" 请输入邮箱"/>
+                <input type="button" id="sendBtn" value="发送验证码" onclick="sendVCEmail(30)">
+            </label>
 
-            电话：<input type="text" name="tel">*<br>
+            <label>
+                <span>验证码：</span>
+                <input type="text" name="vc" placeholder=" 请输入验证码（区分大小写）"/>
+            </label>
 
-            邮箱：<input type="email" name="email" id="email">*
-            <input type="button" id="sendBtn" value="发送验证码" onclick="sendVCEmail(10)"><br>
-
-            验证码：<input type="text" name="vc">*<br>
-
-            <input type="submit" value="注册">
-
+            <label style="width: 100%;">
+                <span>&nbsp;</span>
+                <input type="submit" class="button" value="注册" />
+            </label>
         </form>
     </div>
+
+
 
 </body>
 </html>
