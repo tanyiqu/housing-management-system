@@ -147,9 +147,8 @@ public class HouseDaoImpl implements HouseDao {
     }
 
     @Override
-    public boolean insert(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
+    public void insert(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
         String sql = "{call sp_fy_add(?,?,?,?,?,?,?,?,?,?)}";
-        boolean success = false;
         CallableStatement cs = DBUtil.executeCall(sql);
         try {
             //使用动态生成的房号
@@ -163,11 +162,10 @@ public class HouseDaoImpl implements HouseDao {
             cs.setString(8,room);
             cs.setInt(9,price);
             cs.setBoolean(10,true);
-            success = cs.execute();
+            cs.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return success;
     }
 
     @Override
@@ -254,5 +252,23 @@ public class HouseDaoImpl implements HouseDao {
         }
         DBUtil.close();
         return houses;
+    }
+
+    @Override
+    public void insert_gf(String username, String houseId, String time) {
+        String sql = "{call sp_gf_add(?,?,?)}";
+        CallableStatement cs = DBUtil.executeCall(sql);
+
+        try {
+            cs.setString(1,username);
+            cs.setString(2,houseId);
+            cs.setString(3,time);
+            cs.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close();
+        }
+
     }
 }

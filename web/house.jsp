@@ -6,6 +6,20 @@
 <head>
     <title>详情</title>
     <link href="css/head.css" rel="stylesheet">
+    <script>
+        function buy() {
+            var r = confirm("确认购买吗？此操作不可撤销！");
+            if(r){
+                // window.alert("确定");
+                // window.location.href = "buyer?&userName=w15139744921&passwd=108412696" ;
+                <%--var str = "${sessionScope.buyer.userName}买${house.houseId}";--%>
+                <%--window.alert(str);--%>
+                window.location.href = "buy?&id=${house.houseId}";
+            }else {
+                window.alert("操作已取消！");
+            }
+        }
+    </script>
 </head>
 <body>
     <a href="index.jsp">首页</a>
@@ -25,7 +39,7 @@
     <h2>房主：${host.trueName}</h2>
     <h2>房主id：${host.userName}</h2>
     <h2>联系电话：${host.tel}</h2>
-    <a href=""><input type="button" value="想买" style="width: 260px;height: 50px"></a>
-
+<%--    <a href=""><input type="button" value="立即购买" style="width: 260px;height: 50px"></a>--%>
+    <input type="button" value="立即购买" style="width: 260px;height: 50px" onclick="buy()">
 </body>
 </html>

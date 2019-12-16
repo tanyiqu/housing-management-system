@@ -37,29 +37,47 @@ public interface HouseService {
     public House getHouse(String id);
 
     /**
-     * 获取可用房号
-     * @return 房号
+     * 添加
+     * @param host 房主id
+     * @param houseName 房名
+     * @param type 房子类型
+     * @param area 面积
+     * @param year 年份
+     * @param addr 地址
+     * @param room 房间数
+     * @param price 价格
      */
-    public String getAvailableHouseId();
+    public void addHouse(String host,String houseName, String type, int area, String year, String addr, String room, int price);
 
     /**
-     * 添加
-     * @param host
-     * @param houseName
-     * @param type
-     * @param area
-     * @param year
-     * @param addr
-     * @param room
-     * @param price
-     * @return
+     * 根据地址查找
+     * @param addr 地址
+     * @return list
      */
-    public boolean addHouse(String host,String houseName, String type, int area, String year, String addr, String room, int price);
-
     public List<House> getHouseByAddr(String addr);
 
+    /**
+     * 根据面积查找
+     * @param lower 下界
+     * @param higher 上界
+     * @return list
+     */
     public List<House> getHouseByArea(int lower,int higher);
 
+    /**
+     * 根据价格查找
+     * @param lower 下界
+     * @param higher 上界
+     * @return list
+     */
     public List<House> getHouseByPrice(int lower,int higher);
+
+    /**
+     * 买房
+     * @param username 用户名
+     * @param houseId 房号
+     * @param time 时间
+     */
+    public void buy(String username,String houseId,String time);
 
 }

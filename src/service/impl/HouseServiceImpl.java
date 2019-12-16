@@ -35,13 +35,8 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public String getAvailableHouseId() {
-        return houseDao.findAvailableHouseId();
-    }
-
-    @Override
-    public boolean addHouse(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
-        return houseDao.insert(host,houseName,type,area,year,addr,room,price);
+    public void addHouse(String host, String houseName, String type, int area, String year, String addr, String room, int price) {
+        houseDao.insert(host,houseName,type,area,year,addr,room,price);
     }
 
     @Override
@@ -57,5 +52,10 @@ public class HouseServiceImpl implements HouseService {
     @Override
     public List<House> getHouseByPrice(int lower, int higher) {
         return houseDao.findHouseByPrice(lower,higher);
+    }
+
+    @Override
+    public void buy(String username, String houseId,String time) {
+        houseDao.insert_gf(username,houseId,time);
     }
 }

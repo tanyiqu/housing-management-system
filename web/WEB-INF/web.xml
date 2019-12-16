@@ -94,5 +94,13 @@
         <url-pattern>/search_result</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>buy</servlet-name>
+        <servlet-class>servlet.BuyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>buy</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
 
 </web-app>

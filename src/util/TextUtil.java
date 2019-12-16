@@ -4,6 +4,8 @@
 
 package util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class TextUtil {
@@ -25,10 +27,26 @@ public class TextUtil {
         return VC.toString();
     }
 
-
+    /**
+     * 错误提示
+     * @param msg 提示
+     * @param location 目标
+     * @return String
+     */
     public static String errText(String msg,String location){
         String script = "<script>alert('%s');location.href='%s'</script>";
         return String.format(script,msg,location);
+    }
+
+    /**
+     * 毫秒数转日期
+     * @param mili 毫秒数
+     * @return 日期
+     */
+    public static String transferLongToDate(long mili){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        Date date = new Date(mili);
+        return sdf.format(date);
     }
 
 }

@@ -14,7 +14,7 @@
     <div class="btn">
       <a href="login.jsp" class="btn">登录</a>
       <a href="registered.jsp">注册</a>
-      <a href="admin_login.jsp">后台</a>
+      <a href="admin_login.jsp" target="_blank">后台</a>
     </div>
 
     <div>
@@ -22,6 +22,7 @@
     </div>
 
   </div>
+
 
   <div style="background-color: white;margin:0 5px 30px 5px;">
     <h2>优质房源</h2>
@@ -36,7 +37,7 @@
         <td>
           <a href="imgs/house/02.png" target="_blank">
             <img width="100%" src="imgs/house/02.png"><br>
-            <h3>1111</h3>
+            <h3>2222</h3>
           </a>
         </td>
         <td>
