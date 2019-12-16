@@ -26,7 +26,7 @@ public class SendEmailServlet extends HttpServlet {
         //随机验证码
         String vc = TextUtil.randomVC(6);
         //发送邮件
-        EmailUtil.sendHtml("测试",email,"主题",vc);
+        EmailUtil.sendHtml("房屋中介",email,"验证码",vc);
 
         HttpSession session = req.getSession();
 
