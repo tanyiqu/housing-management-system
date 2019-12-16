@@ -11,7 +11,7 @@
         <h1>管理员登录</h1>
         <form name="form_login" action="admin_login" method="post" onsubmit="return check()">
             <input type="text" name="userName" placeholder="请输入账号" value="15139744921" onfocus="this.value='';">
-            <input type="password" name="passwd" placeholder="请输入密码" value="108412696wu" onfocus="this.value='';">
+            <input type="password" name="passwd" placeholder="请输入密码" value="108412696" onfocus="this.value='';">
             <input type="submit" value="登录">
         </form>
     </div>

@@ -1,6 +1,7 @@
 package dao.impl;
 
 import bean.Income;
+import bean.Sale;
 import dao.AdminDao;
 import util.DBUtil;
 
@@ -27,6 +28,29 @@ public class AdminDaoImpl implements AdminDao {
             e.printStackTrace();
         }
         return exist == 1;
+    }
+
+    @Override
+    public List<Sale> findSaleInfo() {
+        List<Sale> sales = new ArrayList<>();
+        String sql = "select * from vi_csxx";
+        ResultSet rs = DBUtil.executeQuery(sql);
+        while (true){
+            try {
+                if (!rs.next()) break;
+                Sale sale = new Sale();
+                sale.setBuyer_username(rs.getString("gmr_zh"));
+                sale.setBuyer_truename(rs.getString("gmr_xm"));
+                sale.setHouseId(rs.getString("fy_fh"));
+                sale.setHousename(rs.getString("fy_fm"));
+                sale.setPrice(rs.getInt("fy_sj"));
+                sale.setDate(rs.getString("gf_rq"));
+                sales.add(sale);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return sales;
     }
 
     @Override

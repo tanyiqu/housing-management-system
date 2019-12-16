@@ -1,6 +1,7 @@
 package dao;
 
 import bean.Income;
+import bean.Sale;
 
 import java.util.List;
 
@@ -15,8 +16,14 @@ public interface AdminDao {
     public boolean checkAdmin(String userName, String passwd);
 
     /**
-     * 查找收入统计
+     * 查找出售统计
      * @return list
+     */
+    public List<Sale> findSaleInfo();
+
+    /**
+     * 查找收入统计
+     * @return Income
      */
     public Income findIncomeStatistics();
 

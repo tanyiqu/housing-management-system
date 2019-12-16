@@ -35,8 +35,8 @@ public class RegisteredServlet extends HttpServlet {
         String email = req.getParameter("email");
         String vc = req.getParameter("vc");
         //获取服务器发送的验证码
-//        String VC = (String) session.getAttribute("vc");
-        String VC = "1111";
+        String VC = (String) session.getAttribute("vc");
+//        String VC = "1111";
 
         //调用service判断用户
         UserService user = new UserServiceImpl();

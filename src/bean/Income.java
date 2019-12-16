@@ -1,5 +1,8 @@
 package bean;
 
+/**
+ * 收入统计
+ */
 public class Income {
     private int total;
     private int nums;

@@ -2,6 +2,7 @@ package servlet;
 
 import bean.Admin;
 import bean.Income;
+import bean.Sale;
 import service.AdminService;
 import service.UserService;
 import service.impl.AdminServiceImpl;
@@ -46,7 +47,8 @@ public class AdminLoginServlet extends HttpServlet {
         admin.setPasswd(passwd);
         req.setAttribute("admin",admin);
         //出售信息
-
+        List<Sale> sales = adminService.getSaleInfo();
+        req.setAttribute("sales",sales);
         //收入统计
         Income income = adminService.getIncomeStatistics();
         req.setAttribute("income",income);

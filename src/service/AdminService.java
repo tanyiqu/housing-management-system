@@ -1,6 +1,7 @@
 package service;
 
 import bean.Income;
+import bean.Sale;
 
 import java.util.List;
 
@@ -14,10 +15,15 @@ public interface AdminService {
      */
     public boolean adminCorrect(String userName,String passwd);
 
+    /**
+     * 获取销售信息
+     * @return list
+     */
+    public List<Sale> getSaleInfo();
 
     /**
      * 获取收入统计
-     * @return list
+     * @return Income
      */
     public Income getIncomeStatistics();
 
