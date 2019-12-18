@@ -3,8 +3,19 @@
 <html>
 <head>
   <title>首页</title>
-  <meta charset="UTF-8">
   <link rel="stylesheet" href="css/index.css">
+  <style>
+    h2{
+      font-size:35px;
+      color: rgb(51, 51, 51);
+      font-weight:400;
+    }
+    h3{
+      font-size:22px;
+      color: rgb(51, 51, 51);
+      font-weight:400;
+    }
+  </style>
 </head>
 
 <body style="background-color: rgb(244, 244, 244)">
@@ -68,13 +79,11 @@
         <td>
           <a href="imgs/house/01.png" target="_blank">
             <img width="100%" src="imgs/house/01.png"><br>
-            <h3>1111</h3>
           </a>
         </td>
         <td>
           <a href="imgs/house/02.png" target="_blank">
             <img width="100%" src="imgs/house/02.png"><br>
-            <h3>1111</h3>
           </a>
         </td>
       </tr>

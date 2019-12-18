@@ -20,7 +20,12 @@
         <h1>房屋中介</h1>
     </div>
 
-    <h1>我的出售</h1>
+    <a href="addHouse" target="_blank" style="margin-left:10px">
+<%--        <input type="button" value="我要发布" style="width: 260px;height: 50px">--%>
+        <button class="btn btn-primary" style="width: 260px;height: 50px;margin: 10px 0 10px 40px">我要发布</button>
+    </a>
+
+    <h1 style="margin-left: 50px">我的出售</h1>
     <c:if test="${empty sellerCards}">
         <h3>没有出售记录哦！</h3>
     </c:if>
@@ -45,11 +50,6 @@
             </table>
         </div>
     </c:if>
-
-    
-    <a href="addHouse" target="_blank">
-        <input type="button" value="我要发布" style="width: 260px;height: 50px">
-    </a>
 
 
 </body>

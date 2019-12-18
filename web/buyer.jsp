@@ -7,14 +7,6 @@
 <html>
 <head>
     <title>首页</title>
-    <style type="text/css">
-        h1{
-            font-size:30px;
-            font-weight:400;
-            padding-top: 10px;
-            padding-left: 10px;
-        }
-    </style>
     <link href="css/head.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
@@ -30,9 +22,12 @@
     <div class="nav">
         <h1>房屋中介</h1>
     </div>
-    <form method="post" action="search.jsp" target="_blank">
-        <input type="submit" value="搜索房源">
-    </form>
+    <div>
+        <form method="post" action="search.jsp" target="_blank" style="text-align: center">
+            <input type="submit" value="搜索房源" class="btn btn-default btn-sm" style="width: 188px;height: 40px;margin-top: 10px">
+        </form>
+    </div>
+
     <h1>优质房源</h1>
     <div style="margin: 10px 50px 10px 50px">
         <table class="table table-bordered table-hover">
@@ -57,7 +52,11 @@
                     <td>${house.room}</td>
                     <td>${house.area}</td>
                     <td>${house.price}</td>
-                    <th><a href="detail?&id=${house.houseId}" target="_blank"><input type="button" class="btn btn-default btn-sm" value="查看详情"></a></th>
+                    <td>
+                        <a href="detail?&id=${house.houseId}" target="_blank">
+                            <input type="button" class="btn btn-default btn-sm" value="查看详情">
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

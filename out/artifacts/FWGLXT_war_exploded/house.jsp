@@ -6,6 +6,9 @@
 <head>
     <title>详情</title>
     <link href="css/head.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
         function buy() {
             var r = confirm("确认购买吗？此操作不可撤销！");
@@ -29,18 +32,18 @@
     </div>
 
     <div style="margin: 10px 0 0 20px">
-        <h2>ID:${house.houseId}</h2>
-        <h2>${house.houseName}</h2>
-        <h2>地址：${house.addr}</h2>
-        <h2>类型：${house.type}</h2>
-        <h2>房间：${house.room}</h2>
-        <h2>建筑年份：${house.year}</h2>
-        <h2>面积：${house.area}㎡</h2>
-        <h2>价格：${house.price}万</h2>
-        <h2>房主：${host.trueName}</h2>
-        <h2>房主id：${host.userName}</h2>
-        <h2>联系电话：${host.tel}</h2>
-        <input type="button" value="立即购买" style="width: 260px;height: 50px" onclick="buy()">
+        <h3>ID:${house.houseId}</h3>
+        <h3>${house.houseName}</h3>
+        <h3>地址：${house.addr}</h3>
+        <h3>类型：${house.type}</h3>
+        <h3>房间：${house.room}</h3>
+        <h3>建筑年份：${house.year}</h3>
+        <h3>面积：${house.area}㎡</h3>
+        <h3>价格：${house.price}万</h3>
+        <h3>房主：${host.trueName}</h3>
+        <h3>房主id：${host.userName}</h3>
+        <h3>联系电话：${host.tel}</h3>
+        <input type="button" value="立即购买" class="btn btn-default btn-sm" style="width: 260px;height: 50px" onclick="buy()">
     </div>
 
 
