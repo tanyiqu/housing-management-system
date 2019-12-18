@@ -23,23 +23,26 @@
 </head>
 <body>
     <a href="index.jsp">首页</a>
-    <a href="index.jsp">${sessionScope.buyer.userName}(退出登录)</a>
+    <a href="login.jsp">${sessionScope.buyer.userName}(退出登录)</a>
     <div class="nav">
         <h1>详情</h1>
     </div>
 
-    <h2>ID:${house.houseId}</h2>
-    <h2>${house.houseName}</h2>
-    <h2>地址：${house.addr}</h2>
-    <h2>类型：${house.type}</h2>
-    <h2>房间：${house.room}</h2>
-    <h2>建筑年份：${house.year}</h2>
-    <h2>面积：${house.area}㎡</h2>
-    <h2>价格：${house.price}万</h2>
-    <h2>房主：${host.trueName}</h2>
-    <h2>房主id：${host.userName}</h2>
-    <h2>联系电话：${host.tel}</h2>
-<%--    <a href=""><input type="button" value="立即购买" style="width: 260px;height: 50px"></a>--%>
-    <input type="button" value="立即购买" style="width: 260px;height: 50px" onclick="buy()">
+    <div style="margin: 10px 0 0 20px">
+        <h2>ID:${house.houseId}</h2>
+        <h2>${house.houseName}</h2>
+        <h2>地址：${house.addr}</h2>
+        <h2>类型：${house.type}</h2>
+        <h2>房间：${house.room}</h2>
+        <h2>建筑年份：${house.year}</h2>
+        <h2>面积：${house.area}㎡</h2>
+        <h2>价格：${house.price}万</h2>
+        <h2>房主：${host.trueName}</h2>
+        <h2>房主id：${host.userName}</h2>
+        <h2>联系电话：${host.tel}</h2>
+        <input type="button" value="立即购买" style="width: 260px;height: 50px" onclick="buy()">
+    </div>
+
+
 </body>
 </html>

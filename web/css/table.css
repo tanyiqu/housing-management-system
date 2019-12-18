@@ -1,8 +1,10 @@
 th {
-    text-align: center;
+    /*text-align: center;*/
 }
 table{
     border-collapse:collapse;
+    /*margin: 10px;*/
+    width: 100%;
 }
 table td,
 table th{

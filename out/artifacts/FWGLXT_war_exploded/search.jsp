@@ -8,7 +8,7 @@
 <body>
 
     <a href="index.jsp">首页</a>
-    <a href="index.jsp">${sessionScope.buyer.userName}(退出登录)</a>
+    <a href="login.jsp">${sessionScope.buyer.userName}(退出登录)</a>
     <div class="nav">
         <h1>搜索</h1>
     </div>

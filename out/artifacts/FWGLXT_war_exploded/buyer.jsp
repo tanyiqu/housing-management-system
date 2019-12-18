@@ -16,23 +16,27 @@
         }
     </style>
     <link href="css/head.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
 
 </head>
 <body style="background-color: rgb(240, 240, 240)">
 
     <a href="index.jsp">首页</a>
-    <a href="index.jsp">${sessionScope.buyer.userName}(退出登录)</a>
+    <a href="login.jsp">${sessionScope.buyer.userName}(退出登录)</a>
     <div class="nav">
         <h1>房屋中介</h1>
     </div>
     <form method="post" action="search.jsp" target="_blank">
-        <input type="submit" value="搜索">
+        <input type="submit" value="搜索房源">
     </form>
     <h1>优质房源</h1>
-    <div>
-        <table>
-            <tr>
+    <div style="margin: 10px 50px 10px 50px">
+        <table class="table table-bordered table-hover">
+            <tr class="success">
                 <th>id</th>
                 <th>房名</th>
                 <th>地址</th>
@@ -53,7 +57,7 @@
                     <td>${house.room}</td>
                     <td>${house.area}</td>
                     <td>${house.price}</td>
-                    <th><a href="detail?&id=${house.houseId}" target="_blank"><input type="button" value="查看详情"></a></th>
+                    <th><a href="detail?&id=${house.houseId}" target="_blank"><input type="button" class="btn btn-default btn-sm" value="查看详情"></a></th>
                 </tr>
             </c:forEach>
         </table>
@@ -64,24 +68,26 @@
         <h3>没有购买记录哦！</h3>
     </c:if>
     <c:if test="${!empty buyerCards}">
-        <table border="1">
-            <tr>
-                <th>房名</th>
-                <th>价格（万）</th>
-                <th>购买时间</th>
-                <th>房主</th>
-                <th>房主电话</th>
-            </tr>
-            <c:forEach items="${buyerCards}" var="buyerCard">
-                <tr>
-                    <td>${buyerCard.name}</td>
-                    <td>${buyerCard.price}</td>
-                    <td>${buyerCard.date}</td>
-                    <td>${buyerCard.hostname}</td>
-                    <td>${buyerCard.hosttel}</td>
+        <div style="margin: 10px 50px 10px 50px">
+            <table class="table table-bordered table-hover">
+                <tr class="success">
+                    <th>房名</th>
+                    <th>价格（万）</th>
+                    <th>购买时间</th>
+                    <th>房主</th>
+                    <th>房主电话</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach items="${buyerCards}" var="buyerCard">
+                    <tr>
+                        <td>${buyerCard.name}</td>
+                        <td>${buyerCard.price}</td>
+                        <td>${buyerCard.date}</td>
+                        <td>${buyerCard.hostname}</td>
+                        <td>${buyerCard.hosttel}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </c:if>
 
 

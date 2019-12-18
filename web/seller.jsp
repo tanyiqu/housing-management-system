@@ -8,11 +8,14 @@
 <head>
     <title>我的出售</title>
     <link href="css/head.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
     <a href="index.jsp">首页</a>
-    <a href="index.jsp">${sessionScope.seller.userName}</a>
+    <a href="login.jsp">${sessionScope.seller.userName}(退出登录)</a>
     <div class="nav">
         <h1>房屋中介</h1>
     </div>
@@ -22,29 +25,30 @@
         <h3>没有出售记录哦！</h3>
     </c:if>
     <c:if test="${!empty sellerCards}">
-        <table border="1px">
-            <tr>
-                <th>id</th>
-                <th>房间名称</th>
-                <th>售价（万）</th>
-                <th>已售</th>
-            </tr>
-
-            <c:forEach items="${sellerCards}" var="sellerCard">
-                <tr>
-                    <td>${sellerCard.id}</td>
-                    <td>${sellerCard.name}</td>
-                    <td>${sellerCard.price}</td>
-                    <td>${sellerCard.soldout}</td>
+        <div style="margin: 10px 50px 10px 50px;">
+            <table class="table table-bordered table-hover">
+                <tr class="success">
+                    <th>id</th>
+                    <th>房间名称</th>
+                    <th>售价（万）</th>
+                    <th>已售</th>
                 </tr>
-            </c:forEach>
-        </table>
-    </c:if>
 
+                <c:forEach items="${sellerCards}" var="sellerCard">
+                    <tr>
+                        <td>${sellerCard.id}</td>
+                        <td>${sellerCard.name}</td>
+                        <td>${sellerCard.price}</td>
+                        <td>${sellerCard.soldout}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </c:if>
 
     
     <a href="addHouse" target="_blank">
-        <input type="button" value="我要发布" style="height: 100px;width: 300px; border-radius: 20px">
+        <input type="button" value="我要发布" style="width: 260px;height: 50px">
     </a>
 
 

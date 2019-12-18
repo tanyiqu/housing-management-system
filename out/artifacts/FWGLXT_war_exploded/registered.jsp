@@ -51,7 +51,7 @@
 
 </head>
 <body style="background-image: url(imgs/house/01.png);background-repeat: no-repeat;background-size: cover">
-
+    <a href="index.jsp">首页</a>
     <div class="div">
         <form name="f1" action="registered" method="post" class="registered" onsubmit="return check()">
             <h1 style="text-align: center;">房屋中介-用户注册</h1>

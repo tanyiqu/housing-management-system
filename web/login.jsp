@@ -16,8 +16,8 @@
                 <option value="0">买房</option>
                 <option value="1">卖房</option>
             </select>
-            <input type="text" name="userName" placeholder="请输入账号" value="gf10001" onfocus="this.value='sf10001'">
-            <input type="password" name="passwd" placeholder="请输入密码" value="gfmm10001" onfocus="this.value='sfmm10001'">
+            <input type="text" name="userName" placeholder="请输入账号" value="gf10001" onfocus="this.value='fwzjgf888'">
+            <input type="password" name="passwd" placeholder="请输入密码" value="gfmm10001" onfocus="this.value='108412696'">
             <input type="submit" value="登录">
             <p>
                 <a href="#">忘记密码</a>

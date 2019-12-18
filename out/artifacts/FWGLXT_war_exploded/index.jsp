@@ -18,7 +18,7 @@
     </div>
 
     <div>
-      <a href="#"><h1>房屋中介</h1></a>
+      <a href=""><h1>房屋中介</h1></a>
     </div>
 
   </div>
@@ -31,25 +31,25 @@
         <td>
           <a href="imgs/house/01.png" target="_blank">
             <img width="100%" src="imgs/house/01.png"><br>
-            <h3>1111</h3>
+            <h3>最美公寓</h3>
           </a>
         </td>
         <td>
           <a href="imgs/house/02.png" target="_blank">
             <img width="100%" src="imgs/house/02.png"><br>
-            <h3>2222</h3>
+            <h3>花式洋房</h3>
           </a>
         </td>
         <td>
           <a href="imgs/house/03.png" target="_blank">
             <img width="100%" src="imgs/house/03.png"><br>
-            <h3>1111</h3>
+            <h3>教学区房</h3>
           </a>
         </td>
         <td>
           <a href="imgs/house/04.png" target="_blank">
             <img width="100%" src="imgs/house/04.png"><br>
-            <h3>1111</h3>
+            <h3>明湖公寓</h3>
           </a>
         </td>
       </tr>

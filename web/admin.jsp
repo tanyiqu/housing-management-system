@@ -8,6 +8,10 @@
 <head>
     <title>后台管理</title>
     <link href="css/head.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
     <a href="index.jsp">首页</a>
@@ -17,8 +21,8 @@
 
     <h2>${admin.username}</h2>
     <h1>出售信息</h1>
-    <table border="1">
-        <tr>
+    <table class="table table-bordered table-hover" style="width: 65%;">
+        <tr class="success">
             <th>买方ID</th>
             <th>买方姓名</th>
             <th>房源ID</th>
@@ -40,20 +44,19 @@
     </table>
 
     <h1>收入统计</h1>
-    <table border="1">
-        <tr>
+    <table class="table table-bordered table-hover" style="width: 36%">
+        <tr class="success">
             <th>总交易额（万）</th>
             <th>交易笔数</th>
             <th>单笔均价（万）</th>
         </tr>
         <tr>
-            <th>${income.total}</th>
-            <th>${income.nums}</th>
-            <th>${income.avg}</th>
+            <td>${income.total}</td>
+            <td>${income.nums}</td>
+            <td>${income.avg}</td>
         </tr>
 
     </table>
-
 
 
 </body>
