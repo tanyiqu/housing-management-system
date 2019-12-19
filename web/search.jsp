@@ -45,7 +45,7 @@
         <div style="margin: 4px 0 0 0">
             <form name="f3" method="post" action="search_result" class="form-inline" style="text-align: center" onsubmit="return check_f3()">
                 <div class="form-group">
-                    <p class="form-control-static">按面积（㎡）：</p>
+                    <p class="form-control-static">按价格（万）：</p>
                 </div>
                 <div class="form-group">
                     <input type="number" name="keyword_price_lower" class="form-control" style="width:166px">~

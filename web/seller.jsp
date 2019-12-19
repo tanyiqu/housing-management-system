@@ -13,6 +13,7 @@
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
+
 <body>
     <a href="index.jsp">首页</a>
     <a href="login.jsp">${sessionScope.seller.userName}(退出登录)</a>

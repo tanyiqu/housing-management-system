@@ -62,7 +62,8 @@ public class InsertHouseServlet extends HttpServlet {
         HouseService houseService = new HouseServiceImpl();
         houseService.addHouse(seller.getUserName(),houseName,type,area,year,addr,room,price);
         //添加成功后，返回页面
-        RequestDispatcher dispatcher = req.getRequestDispatcher("seller?&userName=" + seller.getUserName() + "&passwd=" + seller.getPasswd());
-        dispatcher.forward(req, resp);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("seller?&userName=" + seller.getUserName() + "&passwd=" + seller.getPasswd());
+//        dispatcher.forward(req, resp);
+        resp.sendRedirect("add_house_success.jsp");
     }
 }
