@@ -54,7 +54,14 @@ a{
 }
 
 h2{
-    font-size: 40px;
+    font-size:35px;
+    color: rgb(51, 51, 51);
+    font-weight:400;
+}
+h3{
+    font-size:22px;
+    color: rgb(51, 51, 51);
+    font-weight:400;
 }
 
 .bili-banner{

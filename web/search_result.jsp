@@ -9,6 +9,7 @@
     <link href="css/table.css" rel="stylesheet">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/check_search.js"></script>
 </head>
 <body>
 
@@ -31,7 +32,7 @@
             </form>
         </div>
         <div style="margin: 4px">
-            <form method="post" action="search_result" class="form-inline" style="text-align: center">
+            <form name="f2" method="post" action="search_result" class="form-inline" style="text-align: center" onsubmit="return check_f2()">
                 <div class="form-group">
                     <p class="form-control-static">按面积（㎡）：</p>
                 </div>
@@ -43,7 +44,7 @@
             </form>
         </div>
         <div style="margin: 4px 0 0 0">
-            <form method="post" action="search_result" class="form-inline" style="text-align: center">
+            <form name="f3" method="post" action="search_result" class="form-inline" style="text-align: center" onsubmit="return check_f3()">
                 <div class="form-group">
                     <p class="form-control-static">按面积（㎡）：</p>
                 </div>

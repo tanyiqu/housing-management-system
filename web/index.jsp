@@ -5,16 +5,7 @@
   <title>首页</title>
   <link rel="stylesheet" href="css/index.css">
   <style>
-    h2{
-      font-size:35px;
-      color: rgb(51, 51, 51);
-      font-weight:400;
-    }
-    h3{
-      font-size:22px;
-      color: rgb(51, 51, 51);
-      font-weight:400;
-    }
+
   </style>
 </head>
 
